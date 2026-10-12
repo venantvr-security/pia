@@ -1,0 +1,12 @@
+name = "pia"
+compatibility_date = "2024-09-23"
+
+# Cloudflare Workers - Static Assets (SPA Angular)
+[assets]
+directory = "./dist/pia-angular/browser"
+not_found_handling = "single-page-application"
+
+# Alternative pour Cloudflare Pages (wrangler pages deploy) :
+# Décommentez la ligne suivante et commentez le bloc [assets] ci-dessus.
+# pages_build_output_dir = "./dist/pia-angular/browser"
+
