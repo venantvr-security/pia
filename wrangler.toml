@@ -1,12 +1,17 @@
 name = "pia"
 compatibility_date = "2024-09-23"
 
+# Build exécuté automatiquement par `wrangler deploy` avant l'upload des assets
+# (évite l'erreur "assets directory does not exist" si aucune commande de build
+# n'est configurée dans le dashboard Cloudflare).
+[build]
+command = "npx ng build --configuration production"
+
 # Cloudflare Workers - Static Assets (SPA Angular)
 [assets]
 directory = "./dist/pia-angular/browser"
 not_found_handling = "single-page-application"
 
 # Alternative pour Cloudflare Pages (wrangler pages deploy) :
-# Décommentez la ligne suivante et commentez le bloc [assets] ci-dessus.
+# Décommentez la ligne suivante et commentez les blocs [build] et [assets] ci-dessus.
 # pages_build_output_dir = "./dist/pia-angular/browser"
-
